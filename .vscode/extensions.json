@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "mhutchie.git-graph",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "ms-python.pylint",
+        "ms-python.python",
+        "redhat.vscode-yaml",
+        "ryanluker.vscode-coverage-gutters"
+    ]
+}

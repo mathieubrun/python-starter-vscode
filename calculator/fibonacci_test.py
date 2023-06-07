@@ -4,7 +4,7 @@ from pytest import fixture, raises
 
 
 class TestFibonacci:
-    def test_one_is_one(self, sut):
+    def test_one_is_one(self, sut: Fibonacci):
         # arrange
         # act
         result = sut.calculate(1)
@@ -12,7 +12,7 @@ class TestFibonacci:
         # assert
         assert result == 1
 
-    def test_two_is_one(self, sut):
+    def test_two_is_one(self, sut: Fibonacci):
         # arrange
         # act
         result = sut.calculate(2)
@@ -20,7 +20,7 @@ class TestFibonacci:
         # assert
         assert result == 1
 
-    def test_minus_one_raises_error(self, sut):
+    def test_minus_one_raises_error(self, sut: Fibonacci):
         # arrange
         # act
         # assert
@@ -30,5 +30,5 @@ class TestFibonacci:
         assert "not a positive integer" in str(excinfo.value)
 
     @fixture
-    def sut(self):
+    def sut(self) -> Fibonacci:
         return Fibonacci()

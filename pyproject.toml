@@ -6,6 +6,7 @@ sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
 import_heading_stdlib = "Standard Library"
 import_heading_thirdparty = "Dependencies"
 import_heading_firstparty = "Current project"
+profile = "black"
 
 [tool.pylint.main]
 disable = [

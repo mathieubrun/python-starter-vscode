@@ -3,11 +3,12 @@
         "coverage.xml",
     ],
     "coverage-gutters.showGutterCoverage": true,
+    "editor.formatOnSave": true,
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
     "python.linting.pylintArgs": [
         "--init-hook",
-        "import sys; sys.path.append({workspaceFolder})"
+        "import sys; sys.path.append('${workspaceFolder}')"
     ],
     "python.testing.pytestArgs": [
         ".",
@@ -25,14 +26,5 @@
             "source.organizeImports": true
         },
         "editor.defaultFormatter": "ms-python.black-formatter"
-    },
-    "[json]": {
-        "editor.formatOnSave": true,
-    },
-    "[jsonc]": {
-        "editor.formatOnSave": true,
-    },
-    "[yaml]": {
-        "editor.formatOnSave": true
     }
 }

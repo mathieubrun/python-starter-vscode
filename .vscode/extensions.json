@@ -1,7 +1,8 @@
 {
     "recommendations": [
         "charliermarsh.ruff",
+        "ms-python.debugpy",
         "ms-python.vscode-pylance",
-        "ms-python.debugpy"
+        "ryanluker.vscode-coverage-gutters",
     ]
 }

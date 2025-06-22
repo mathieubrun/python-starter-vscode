@@ -1,12 +1,11 @@
-# Python-generated files
 __pycache__/
+.coverage
+.DS_Store
+.ruff_cache/
+.venv
+*.egg-info
 *.py[oc]
 build/
+coverage.xml
 dist/
 wheels/
-*.egg-info
-
-# Virtual environments
-.venv
-
-.ruff_cache/

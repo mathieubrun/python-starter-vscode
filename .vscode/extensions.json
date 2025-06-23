@@ -4,5 +4,6 @@
         "ms-python.debugpy",
         "ms-python.vscode-pylance",
         "ryanluker.vscode-coverage-gutters",
+        "mhutchie.git-graph",
     ]
 }

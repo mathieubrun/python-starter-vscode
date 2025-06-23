@@ -4,12 +4,15 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
         {
             "name": "Python: cli",
             "type": "debugpy",
             "request": "launch",
-            "module": "cli"
+            "module": "cli",
+            "args": [
+                "users",
+                "list",
+            ],
         },
         {
             "name": "Python: api",
@@ -17,8 +20,20 @@
             "request": "launch",
             "module": "uvicorn",
             "args": [
-                "api:app",
-                "--reload"
+                "api:fastapi_app",
+                "--reload",
+                "--log-config",
+                "src/api/log_config.yaml",
+            ],
+        },
+        {
+            "name": "Python: streamlit",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "streamlit",
+            "args": [
+                "run",
+                "src/forms/main.py",
             ],
         }
     ]

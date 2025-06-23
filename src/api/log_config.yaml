@@ -1,0 +1,17 @@
+version: 1
+formatters:
+  simple:
+    format: '%(request_id)s - %(asctime)s - %(levelname)8s - %(name)s - %(message)s'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+    filters: [requestIdFilter]
+root:
+  level: DEBUG
+  handlers: [console]
+filters:
+  requestIdFilter:
+    (): api.log_config.RequestIdLogFilter

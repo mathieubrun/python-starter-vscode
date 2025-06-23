@@ -1,9 +1,24 @@
-from typer import Typer
-from .suffix import app as suffix_app
-from .version import app as version_app
+from dishka import Scope
+from typer import Context, Typer
 
+from core import create_dishka_container
+
+from .users_command import users_app
 
 app = Typer()
 
-app.add_typer(version_app)
-app.add_typer(suffix_app)
+app_container = create_dishka_container(Scope.APP)
+
+app.add_typer(users_app, name="users")
+
+
+@app.callback()
+def main(ctx: Context):
+    ctx.obj = app_container
+    ctx.call_on_close(app_container.close)
+
+
+@app.command()
+def version():
+    print("My CLI Version 0.0.0")
+    print("My CLI Version 0.0.0")

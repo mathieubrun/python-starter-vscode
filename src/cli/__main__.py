@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from .tools import run
+from .main import app
 
 if __name__ == "__main__":
-    run()
+    app()

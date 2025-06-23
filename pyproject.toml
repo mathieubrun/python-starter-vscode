@@ -9,6 +9,7 @@ dependencies = [
     "pydantic>=2.11.7",
     "pydantic-settings>=2.10.0",
     "streamlit>=1.46.0",
+    "typer>=0.16.0",
 ]
 
 [dependency-groups]
@@ -20,7 +21,7 @@ dev = [
 ]
 
 [project.scripts]
-starter_cli = "cli:run"
+starter_cli = "cli:app"
 
 [build-system]
 requires = ["setuptools>=61.0"]

@@ -1,9 +1,8 @@
 from dishka import Scope
 from typer import Context, Typer
 
+from cli.users_command import users_app
 from core import create_dishka_container
-
-from .users_command import users_app
 
 app = Typer()
 

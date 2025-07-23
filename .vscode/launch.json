@@ -8,8 +8,10 @@
             "name": "Python: cli",
             "type": "debugpy",
             "request": "launch",
-            "module": "cli",
+            "module": "typer",
             "args": [
+                "src/cli/main.py",
+                "run",
                 "users",
                 "list",
             ],

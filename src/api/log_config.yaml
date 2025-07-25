@@ -9,9 +9,21 @@ handlers:
     formatter: simple
     stream: ext://sys.stdout
     filters: [requestIdFilter]
-root:
-  level: DEBUG
-  handlers: [console]
 filters:
   requestIdFilter:
     (): api.log_config.RequestIdLogFilter
+loggers:
+  root:
+    level: DEBUG
+    handlers: 
+      - console
+  uvicorn.error:
+    level: INFO
+    handlers:
+      - console
+    propagate: no
+  uvicorn.access:
+    level: INFO
+    handlers:
+      - console
+    propagate: no

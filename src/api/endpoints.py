@@ -4,7 +4,7 @@ from typing import List
 from dishka.integrations.fastapi import DishkaRoute, FromDishka, inject_sync
 from fastapi import APIRouter
 
-from core.config import AppSettings, PrimaryService
+from core.config import PrimaryService
 from core.data import User
 
 router = APIRouter(prefix="/api", route_class=DishkaRoute)
@@ -21,7 +21,7 @@ async def get_users(users: FromDishka[PrimaryService]):
     return users.get_all()
 
 
-@router_ignored.get("/admin")
+@router_ignored.get("/fail")
 @inject_sync
-async def admin(settings: FromDishka[AppSettings]):
-    return {"email": settings.ADMIN_EMAIL}
+async def fail():
+    return 5 / 0

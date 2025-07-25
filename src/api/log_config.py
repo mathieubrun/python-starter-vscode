@@ -26,9 +26,6 @@ class RequestIdMiddleware(BaseHTTPMiddleware):
     added as an 'X-Request-ID' header in the response.
     """
 
-    def __init__(self, app):
-        super().__init__(app)
-
     async def dispatch(self, request: Request, call_next):
         request_id = uuid4().hex[:id_length]
 

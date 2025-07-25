@@ -12,7 +12,6 @@ SecondaryService = NewType("SecondaryService", UsersService)
 
 class AppSettings(BaseSettings):
     APP_NAME: str = "Awesome API"
-    ADMIN_EMAIL: str
 
 
 class AppProvider(Provider):

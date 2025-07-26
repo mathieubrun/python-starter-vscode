@@ -2,16 +2,14 @@ from logging import debug
 from typing import List
 
 from dishka.integrations.fastapi import DishkaRoute, FromDishka, inject_sync
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
+from pydantic import ValidationError
 
 from core.config import PrimaryService
 from core.data import User
+from core.exceptions import CustomException
 
 router = APIRouter(prefix="/api", route_class=DishkaRoute)
-
-# The router for endpoints that should be ignored in the OpenAPI schema
-# (e.g., health checks, internal endpoints)
-router_ignored = APIRouter(include_in_schema=False, route_class=DishkaRoute)
 
 
 @router.get("/users", response_model=List[User])
@@ -21,7 +19,19 @@ async def get_users(users: FromDishka[PrimaryService]):
     return users.get_all()
 
 
-@router_ignored.get("/fail")
+@router.get("/exceptions/unhandled", include_in_schema=False)
 @inject_sync
-async def fail():
+async def exceptions_unhandled():
     return 5 / 0
+
+
+@router.get("/exceptions/http", include_in_schema=False)
+@inject_sync
+async def exceptions_http():
+    raise HTTPException(status_code=400, detail="some error")
+
+
+@router.get("/exceptions/custom", include_in_schema=False)
+@inject_sync
+async def exceptions_value():
+    raise CustomException("test")

@@ -1,24 +1,3 @@
-# usage
-
-## create venv
-
-> uv sync
-
-## debug
-
-> use configured debug
-
-## run locally
-
-> uv run starter_cli
-
-> uv run uvicorn api:app --reload --log-config src/api/log_config.yaml
-
-## build docker
-
-> docker build -t python-starter-kit .
-
-> docker run --rm -ti -p 8000:8000 python-starter-kit
 
 # features
 
@@ -41,3 +20,33 @@ This starter kit is built with a modern, robust, and extensible set of tools and
 *   **Data Visualization & Apps**: Includes **Streamlit** as a dependency for building interactive applications.
 
 *   **Structured Logging**: The API features a structured logging configuration (**src/api/log_config.yaml**).
+
+# usage
+
+## development
+
+Format and lint :
+````
+ruff check --select I --fix
+ruff format
+````
+
+## create venv
+
+> uv sync
+
+## debug
+
+> use configured debug
+
+## run locally
+
+> uv run starter_cli
+
+> uv run uvicorn api:app --reload --log-config src/api/log_config.yaml
+
+## build docker
+
+> docker build -t python-starter-kit .
+
+> docker run --rm -ti -p 8000:8000 python-starter-kit
